@@ -194,6 +194,9 @@ class RbTree {
       z.color = nodeColor.RED;
       this.fixTree(z);
     }
+
+    return z;
+
   }
 
 /**
@@ -358,9 +361,14 @@ class RbTree {
   */
   remove(key) {
     const z = this.findNode(key);
-    if (z == null) {
+    this.removeNode(z);
+  }
+
+  removeNode(z){
+
+    if (z == null)
       return;
-    }
+
     let x;
     let y = z;
     let y_original_color = y.color;
