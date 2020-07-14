@@ -34,5 +34,14 @@ class Node {
       value: this.value,
     }
   }
+
+  getKeyValueArray() {
+    return [ this.key, this.value ]
+  }
+
+  getValueKeyArray() {
+    return [  this.value, this.key, ]
+  }
+
 }
 export default Node;
