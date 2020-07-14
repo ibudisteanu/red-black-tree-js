@@ -314,6 +314,12 @@ class RbTree {
     this.root = null;
   }
 
+  get isEmpty(){
+    if (!this.root) return true;
+    if (this.root.key === null && this.root.value === null) return true;
+    return false;
+  }
+
   /**
   * return the min node of a given tree
   */
