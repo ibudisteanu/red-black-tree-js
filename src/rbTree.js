@@ -21,8 +21,11 @@ import { toNumber, isNilNode } from './helper';
  * 4.All simple paths from a node x to a descendant leaves of x has same black nodes
  */
 class RbTree {
+
   constructor() {
-    this.root = null;
+
+    this.emptyTree();
+
   }
 
 /**
@@ -165,9 +168,13 @@ class RbTree {
   * If x is root, change color of node as BLACK (Black height +1).
   */
   insert(key, value) {
+
     let y = null;
     let x = this.root;
+
     const z = createNode(key, value);
+    this.count++;
+
     if (this.root == null) {
       this.root = z;
       z.color = nodeColor.BLACK;
@@ -312,6 +319,7 @@ class RbTree {
   */
   emptyTree() {
     this.root = null;
+    this.count = 0;
   }
 
   get isEmpty(){
@@ -403,6 +411,9 @@ class RbTree {
     if (y_original_color === nodeColor.BLACK) {
       this.removeFix(x);
     }
+
+    this.count--;
+
   }
 
 /**
